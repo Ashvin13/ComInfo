@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h2>Sign up</h2>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form_for(resource, as: resource_name, :html => { :class => "form-horizontal company" }, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
+            <% if @minimum_password_length %>
+              <em class="emclass">(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <div class="col-md-8">
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Password_confirmation:", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :uname, "User name:", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.text_field :uname, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :phone_no, "Phone-no:", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.text_field :phone_no, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :date_of_birth, "Date_of_birth:", class: "col-md-4 control-label" %>
+            <div class="col-md-8">
+              <%= f.text_field :date_of_birth, 'data-behaviour' => 'datepicker', class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <%= f.label :user_type, "User_type:", class: "col-md-4 control-label" %>
+              <div class="col-md-8">
+                <%= f.select(:user_type, User::USER_TYPES, {} ,{ class: "form-control" }) %>
+              </div>
+          </div>
+          <div class="col-md-12 regsubmit">
+            <%= f.submit "Submit", class: "btn btn-primary regsubmitpera" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+<%= render "devise/shared/links" %>
+
