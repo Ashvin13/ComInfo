@@ -1,16 +1,64 @@
 <%- model_class = Company -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>My Company</h1>
+</div>
+<!-- <dl class="dl-horizontal"> -->
+<!-- </dl> -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 img-main-section">
+			<div class="img-section">
+				<div class="com-img">
+					<%= image_tag @company.image_url(:thumb) if @company.image? %>
+				</div>
+				<div class="com-info">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th class="theading">Company name:</th>
+									<td class="trow"><%= @company.cname %></td>
+							</tr>
+							<tr>
+								<th class="theading">Registration No:</th>
+									<td class="trow"><%= @company.regno %></td>
+							</tr>
+							<tr>
+								<th class="theading">Startdate:</th>
+									<td class="trow"><%= @company.startdate %></td>
+							</tr>
+							<tr>
+								<th class="theading">Enddate</th>
+									<td class="trow"><%= @company.enddate %></td>
+							</tr>
+							<tr>
+								<th class="theading">No of managers:</th>
+									<td class="trow"><%= @comp_manager %></td>
+							</tr>
+							<tr>
+								<th class="theading">No of workers:</th>
+									<td class="trow"><%= @comp_worker %></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 com-desc-main-section">
+			<div class="com-description">
+				<h3 class="com-heading">Your company Aims:</h3>
+				<p class="org-description">
+					<%= @company.cdescription %>
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
 
-<dl class="dl-horizontal">
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<%#= link_to t('.back', :default => t("helpers.links.back")),
               companies_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
+<%#= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_company_path(@company), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
               company_path(@company),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

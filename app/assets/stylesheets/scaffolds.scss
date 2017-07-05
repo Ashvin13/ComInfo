@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px;
+  margin: 0px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -177,8 +177,219 @@ input.btn.btn-primary.nest-sub-pera {
     width: 100%;
 }
 
-label.col-md-4.control-label.required:after {
+label.col-md-4.control-label.require:after {
     content: "*";
     color: red;
     font-size: 20px;
+}
+
+label.control-label.require:after {
+    content: "*";
+    color: red;
+    font-size: 15px;
+}
+
+.page-title {
+    width: 50%;
+}
+
+.owner-rights {
+    width: 50%;
+    float: right;
+}
+
+.work-menger {
+    float: right;
+    margin-top: -45px;
+}
+
+.work-menger a.btn.btn-primary {
+    color: white;
+}
+
+span.com_previous {
+  position: relative;
+  left: 87%;
+}
+
+.img-section img {
+    width: 100%;
+    border-radius: 5%;
+}
+
+.com-img {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(64, 65, 66, 0.66);
+}
+
+td.trow {
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #0061cc;
+}
+
+th.theading {
+    font-size: 15px;
+}
+
+h3.com-heading {
+    padding-top: 0px;
+    margin-top: 0px;
+    border-bottom: 1.5px solid rgba(31, 32, 33, 0.33);
+}
+
+p.org-description {
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: -webkit-body;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 85px 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.user-img img {
+    height: 170px;
+    border-radius: 90px;
+    width: 170px;
+    margin: 17px 0px 17px 100px;
+}
+
+.col-md-4.user-img-main-sec {
+    background-color: #eeeeee;
+    padding-bottom: 35px;
+}
+
+p.user-name {
+    text-align: center;
+    font-size: 20px;
+    font-family: initial;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(68, 64, 64, 0.24);
+}
+
+h5.user-com-name {
+    text-align: center;
+    margin-top: 19px;
+    color: rgba(51, 51, 51, 0.53);
+}
+
+p.company-name {
+    text-align: center;
+    font-size: 30px;
+    text-transform: capitalize;
+    margin-top: 18px;
+}
+
+h5.com-start-date {
+    text-align: center;
+    margin-top: 18px;
+    color: rgba(51, 51, 51, 0.53);
+}
+
+span.span-date {
+    color: rgba(0, 68, 204, 0.77);
+}
+
+h3.pro-title {
+    margin-top: 0px;
+    padding: 25px 0px 10px 25px;
+    text-transform: capitalize;
+}
+
+.profile-heading {
+    background-color: #eeeeee;
+}
+
+.profile-heading {
+    background-color: #eeeeee;
+    padding-bottom: 14px;
+}
+
+p.about_user {
+    padding-left: 25px;
+    font-size: 14px;
+    line-height: 23px;
+    font-family: cursive;
+    color: rgba(51, 51, 51, 0.9);
+}
+
+.label-fild label.control-label.required {
+    color: rgba(51, 51, 51, 0.87);
+    font-size: 15px;
+    font-family: cursive;
+}
+
+.label-fild {
+    float: left;
+    padding-bottom: 7px;
+    padding-left: 25px;
+}
+
+.input-fild {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.user-edt-form {
+    background-color: #eeeeee;
+    margin-top: 30px;
+    padding-bottom: 33px;
+}
+
+.col-md-12.profile-submit {
+    margin-top: 10px;
+}
+
+input.btn.btn-primary.sub_pro_btn {
+    margin-left: 25px;
+    background-color: #2196f3;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    padding: 11px 30px;
+}
+
+label.error {
+    color: red;
+    padding-top: 5px;
+    font-family: cursive;
+}
+
+.user-com-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.22);
+}
+
+h5.total-manager {
+    text-align: center;
+    padding-top: 5px;
+    color: rgba(51, 51, 51, 0.53);
+}
+
+span.sapn-manager {
+    color: rgba(0, 68, 204, 0.77);
+}
+
+h5.total-worker {
+    text-align: center;
+    padding-top: 6px;
+    color: rgba(51, 51, 51, 0.53);
+}
+
+span.sapn-worker {
+    color: rgba(0, 68, 204, 0.77);
+}
+
+$size: 30px;
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
 }

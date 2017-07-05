@@ -1,5 +1,131 @@
-<%- model_class = User -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1>Edit Your Profile</h1>
 </div>
-<%= render :partial => 'form' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 user-img-main-sec">
+			<div class="user-img">
+				<%= image_tag @user.image_url(:thumb) if @user.image? %>
+				<p class="user-name"><%= @user.name %></p>
+			</div>
+			<div class="user-com-info">
+				<h5 class="user-com-name">Your Company Name</h5>
+				<p class="company-name">
+					<%= @user_com %>
+				</p>
+				<h5 class="com-start-date">Established date:- <span class="span-date"><%= @user_start_date.strftime('%d-%m-%y') %></span></h5>
+			</div>
+		</div>
+		<div class="col-md-8 user-info-main-sec">
+			<div class="profile-heading">
+				<h3 class="pro-title">Your Profile</h3>
+				<p class="about_user"><%= @user.about_you %></p>
+			</div>
+			<div class="user-edt-form">
+				<h3 class="pro-title">About You</h3>
+				<%= form_for :user, url: update_user_user_path, :html => { :class => "form-horizontal company", :id => "my-profile", :multipart => true } do |f| %>
+					<% if user_signed_in? %>
+          	<%= f.hidden_field :company_id, value: "#{current_user.company_id}" %>
+          <% end %>
+					<div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :name, "Name:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :name, autofocus: true, class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :email, "Email:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.email_field :email, autofocus: true, class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :password, "Password:", class: "control-label require" %>
+	            	<% if @minimum_password_length %>
+              		<em>(<%= @minimum_password_length %> characters minimum)</em>
+            		<% end %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.password_field :password, autocomplete: "off", class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :password_confirmation, "Password_confirmation:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :uname, "User name:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :uname, class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :phone_no, "Phone-no:", class: "control-label" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :phone_no, class: "form-control" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :date_of_birth, "Date_of_birth:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :date_of_birth, 'data-behaviour' => 'datepicker', class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :image, "Image:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.file_field :image, class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+          	<div class="col-md-12">
+          		<div class="label-fild">
+          			<%= f.label :about_you, "About you:", class: "control-label" %>
+          		</div>
+          		<div class="input-fild">
+          			<%= f.text_area :about_you, class: "form-control" %>
+          		</div>
+          	</div>
+          </div>
+          <div class="form-group">
+          	<div class="col-md-12 profile-submit">
+          		<%= f.submit "Save Changes", class: "btn btn-primary sub_pro_btn" %>
+          	</div>
+          </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('[data-behaviour=datepicker]').datepicker({format: 'yyyy-mm-dd'});
+  $("#my-profile").validate();
+});
+</script>

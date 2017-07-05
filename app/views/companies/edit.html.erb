@@ -1,5 +1,103 @@
-<%- model_class = Company -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1>Edit Your Company</h1>
 </div>
-<%= render :partial => 'form' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 user-img-main-sec">
+			<div class="user-img">
+				<%= image_tag @company.image_url(:thumb) if @company.image? %>
+				<p class="user-name"><%= @company.cname %></p>
+			</div>
+			<div class="user-com-info">
+				<h5 class="user-com-name">Owner Name</h5>
+				<p class="company-name">
+					<%= @com_owner %>
+				</p>
+				<h5 class="com-start-date">Established date:- <span class="span-date"><%= @com_start_date.strftime('%d-%m-%y') %></span></h5>
+			</div>
+			<div class="com-user-list">
+				<h5 class="total-manager">No Of Managers:- <span class="sapn-manager"><%= @comp_manager %></span></h5>
+				<h5 class="total-worker">No Of Workers:- <span class="sapn-worker"><%= @comp_worker %></span></h5>
+			</div>
+		</div>
+		<div class="col-md-8 user-info-main-sec">
+			<div class="profile-heading">
+				<h3 class="pro-title">Company Profile</h3>
+				<p class="about_user"><%= @company.cdescription %></p>
+			</div>
+			<div class="user-edt-form">
+				<h3 class="pro-title">About Company</h3>
+				<%= form_for @company, :html => { :class => "form-horizontal company", :id => "my-company", :multipart => true } do |f| %>
+					<div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :cname, "Company name:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :cname, class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :regno, "Reg. No:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :regno, class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :startdate, "Startdate:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :startdate, 'data-behaviour' => 'datepicker', class: "form-control required" %>
+	            </div>
+            </div>
+            <div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :enddate, "Enddate:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_field :enddate, 'data-behaviour' => 'datepicker', class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+						<div class="col-md-6">
+							<div class="label-fild">
+	            	<%= f.label :image, "Image:", class: "control-label require" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.file_field :image, class: "form-control required" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+          	<div class="col-md-12">
+							<div class="label-fild">
+	            	<%= f.label :cdescription, "Description:", class: "control-label" %>
+	            </div>
+	            <div class="input-fild">
+	              <%= f.text_area :cdescription, class: "form-control" %>
+	            </div>
+            </div>
+          </div>
+          <div class="form-group">
+          	<div class="col-md-12 profile-submit">
+          		<%= f.submit "Save Changes", class: "btn btn-primary sub_pro_btn" %>
+          	</div>
+          </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour=datepicker]').datepicker({format: 'yyyy-mm-dd'});
+    $("#my-company").validate();
+  });
+</script>

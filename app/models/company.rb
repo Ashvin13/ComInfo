@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+	attr_accessor :image
+	mount_uploader :image, ImageUploader
+
 	has_many :users, :dependent => :destroy
   	accepts_nested_attributes_for :users
 
