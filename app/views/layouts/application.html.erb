@@ -36,7 +36,9 @@
       	<% else %>
         	<li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
-        <li><%= link_to "Registration", new_company_path %></li>
+        <% if !user_signed_in? %>
+        	<li><%= link_to "Registration", new_company_path %></li>
+        <% end %>
         <% if user_signed_in? %>
         	<% if current_user.user_type == "Owner" %>
 		        <li class="dropdown">
