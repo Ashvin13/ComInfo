@@ -4,7 +4,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    Rack::MiniProfiler.step("fetch companies") do
+      @companies = Company.all
+    end
   end
 
   # GET /companies/1
@@ -38,7 +40,7 @@ class CompaniesController < ApplicationController
     # abort params[:company][:users_attributes][0].inspect
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        format.html { redirect_to new_user_session_path, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
         UserMailer.com_reg_email(@company.users.first.email).deliver
       else

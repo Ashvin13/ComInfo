@@ -13,6 +13,7 @@
  *= require bootstrap-datepicker
  *= footer
  *= require social-share-button
+ *= animate
  *= require_tree .
  *= require_self
  */
