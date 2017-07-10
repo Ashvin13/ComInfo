@@ -14,7 +14,7 @@
  *= footer
  *= require social-share-button
  *= animate
- *= font-awesome.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
