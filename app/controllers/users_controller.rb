@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 	def update_user
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
-			redirect_to '/'
+			redirect_to edit_user_path
 		end
 	end
 
