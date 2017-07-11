@@ -74,12 +74,18 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def worker_manager_sign_up
-    # @user = User.new
-    # abort params.inspect
+  def contact
+    if params[:company].present?
+      UserMailer.contact_us(params[:company][:name], params[:company][:email], params[:company][:subject], params[:company][:message]).deliver
+    end
   end
 
-  def create_worker_manager
+  def about
+    
+  end
+
+  def gallery
+    
   end
 
   private

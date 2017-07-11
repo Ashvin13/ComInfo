@@ -19,4 +19,6 @@
 //= require jquery.validate.min
 //= require social-share-button
 //= wow.min
+//= require underscore
+//= require gmaps
 //= require_tree .

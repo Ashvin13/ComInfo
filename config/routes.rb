@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   #   # omniauth_callbacks: 'users/omniauth_callbacks'
   # }
   # devise_for :users, controllers: { sessions: "sessions", registrations: "registrations", passwords: "passwords", confirmations: "confirmations" }
-  resources :companies
+  resources :companies do
+    get :contact, :on => :collection
+    post :contact, :on => :collection
+    get :about, :on => :collection
+    get :gallery, :on => :collection
+  end
 
   resources :users do
   	post :save_user, on: :collection
